@@ -16,3 +16,4 @@ write_files:
     ACTION=="remove", SUBSYSTEM=="block",
     ENV{ID_PART_ENTRY_TYPE}=="26758745-8ec9-4d5f-9f79-9e2339ad253d",
     RUN+="/bin/umount -l /media/%E{ID_FS_UUID}", RUN+="/bin/rmdir /media/%E{ID_FS_UUID}"
+
