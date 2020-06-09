@@ -3,6 +3,9 @@ k3os:
   - server
   - "--disable"
   - servicelb,traefik,local-storage,coredns
+  ntp_servers:
+  - 0.us.pool.ntp.org
+  - 1.us.pool.ntp.org
 write_files:
 - path: /etc/udev/rules.d/81-uud3.rules
   content: >
