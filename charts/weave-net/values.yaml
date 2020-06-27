@@ -1,0 +1,8 @@
+# pretty much the only Weave values to change are the weave and weave-npc images in daemonset.yaml
+image:
+  registry: weaveworks/weave-kube
+  tag: 2.6.4
+npc:
+  image:
+    registry: weaveworks/weave-npc
+    tag: 2.6.4

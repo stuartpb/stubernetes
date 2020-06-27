@@ -1,0 +1,119 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ template "weave-net.fullname" . }}
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+    app.kubernetes.io/instance: {{ .Release.Name | quote }}
+    helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    app.kubernetes.io/name: {{ template "weave-net.name" . }}
+{{- if .Values.customLabels }}
+{{ toYaml .Values.customLabels | indent 4 }}
+{{- end }}
+spec:
+  # Wait 5 seconds to let pod connect before rolling next pod
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ template "weave-net.name" . }}
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ template "weave-net.name" . }}
+    spec:
+      containers:
+        - name: weave
+          command:
+            - /home/weave/launch.sh
+          env:
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: NO_MASQ_LOCAL
+              value: 1
+          image: '{{ .Values.image.repository }}:{{ .Values.image.tag }}'
+          readinessProbe:
+            httpGet:
+              host: 127.0.0.1
+              path: /status
+              port: 6784
+          resources:
+            requests:
+              cpu: 50m
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: weavedb
+              mountPath: /weavedb
+            - name: cni-bin
+              mountPath: /host/opt
+            - name: cni-bin2
+              mountPath: /host/home
+            - name: cni-conf
+              mountPath: /host/etc
+            - name: dbus
+              mountPath: /host/var/lib/dbus
+            - name: lib-modules
+              mountPath: /lib/modules
+            - name: xtables-lock
+              mountPath: /run/xtables.lock
+              readOnly: false
+        - name: weave-npc
+          env:
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+          image: '{{ .Values.npc.image.repository }}:{{ .Values.npc.image.tag }}'
+#npc-args
+          resources:
+            requests:
+              cpu: 50m
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: xtables-lock
+              mountPath: /run/xtables.lock
+              readOnly: false
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      hostPID: true
+      restartPolicy: Always
+      securityContext:
+        seLinuxOptions: {}
+      serviceAccountName: {{ template "weave-net.fullname" . }}
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
+      volumes:
+        - name: weavedb
+          hostPath:
+            path: /var/lib/weave
+        - name: cni-bin
+          hostPath:
+            path: /opt
+        - name: cni-bin2
+          hostPath:
+            path: /home
+        - name: cni-conf
+          hostPath:
+            path: /etc
+        - name: dbus
+          hostPath:
+            path: /var/lib/dbus
+        - name: lib-modules
+          hostPath:
+            path: /lib/modules
+        - name: xtables-lock
+          hostPath:
+            path: /run/xtables.lock
+            type: FileOrCreate
+      priorityClassName: system-node-critical
+  updateStrategy:
+    type: RollingUpdate
