@@ -27,7 +27,8 @@ spec:
         requests:
           cpu: 100m
           memory: 25Mi
-      nodeSelector: st8s.stuartpb.com/zone=403
+      nodeSelector:
+        st8s.stuartpb.com/zone: "403"
     prometheus:
       serviceMonitor:
         enabled: true
