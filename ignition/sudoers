@@ -1,0 +1,21 @@
+## Defaults based on the default sudoers for openSUSE Kubic
+Defaults always_set_home
+Defaults secure_path="/usr/sbin:/usr/bin:/sbin:/bin"
+Defaults env_reset
+Defaults env_keep = "LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_ATIME LC_ALL LANGUAGE LINGUAS XDG_SESSION_COOKIE"
+Defaults !insults
+
+## Configuration based on the default sudoers from CoreOS / Flatcar Linux:
+## https://github.com/coreos/baselayout/blob/master/baselayout/sudoers
+## https://github.com/flatcar-linux/baselayout/blob/flatcar-master/baselayout/sudoers
+
+## enable root and wheel
+root ALL=(ALL) ALL
+%wheel ALL=(ALL) ALL
+
+## enable passwordless access for sudo
+%sudo ALL=(ALL) NOPASSWD: ALL
+
+## Read drop-in files from /etc/sudoers.d
+## (the '#' here does not indicate a comment)
+#includedir /etc/sudoers.d

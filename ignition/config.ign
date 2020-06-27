@@ -1,0 +1,36 @@
+{
+  "ignition": { "version": "3.1.0" },
+  "passwd": {
+    "users": [
+      {
+        "name": "stuart",
+        "groups": "sudo",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDvrf46Kv1OGJrDEe2OY0fqWHbKTisU2qSX4G6f3x/9nUxKiF/nQKB9j2ISvbHlFAad3JRj/G/J/sbD3jJRemKFbys6VSxfnP0mg+N3LPCBQg1OqhpOaA5hKmTUSbhUuNESypz5btt2MfEC832Cx3JMeqTKSlkWpaL27kOeOudz0Flw5cNnFAmpTOh2bnDbtka3ftfjAvpi2TY7x9PvYzcFx5AuiAQChHn+sMg5zFHcAyjMTT/6kIWfG9rVRXShdqyDius/lyk5l+wEU7u8YyPj0rXOaxaACgk0yNpivQrhdVEqCQFzOFWoEwbagoODV5/oeaf2EX/C37uFxGgzhIuIVr9CpPphN3w11jz/EYayxd1wY+TrxfM0hy/T/rmGrOvH7YFKFQtJlZ1nadarmG5jYRdFfko5hVjBz14y/2YF7XgNSqF8W1Y02fK5+vkXJjmjeYjX1t887xFqnDzCo8loKaIlMOfyOzLQuc98hgooJHBBRrCNejYKgcuUNe3Q0gAQ25k+IjzmvJ6Qsq+SB0pvo1CuGaYwDZ3gZUr1XFkdbrkqrEkRdetACPkh/JIn1MYRZ/gXBqzNrTgj1om6MLqoaaTnEHFSFgEk7j6prLj/dcsjw8wEsTgdHqwpGsY7SjvSIq/ZM5jssZ5v0RIfDb8zuCpeBR8jaj3QeSg/Lyt5Mw==",
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCmor073j/v0+V5CJWjK2R+I+nmfl9AR48+QJ/LD1L0Vi5wfYG+7fViH7ViLkUBIdLRfpPKNymTpQmMdpOc9Gm49d2tyz0EuOeBhBhXvWQxB5H8NgYa9ebxN33A0hWhuxFXBcIXtacSNfDVCjo+teVqh8dX1BNxnOrpxEuedpWzVZm73mWYtKkitfWjdW+i922hJ1kOEqGtFSNpnmnwcxu4J0y1H23ZkR35VAuuezstqGBTO2b9FuMUSxPO7Gbq/+WhuBPaS7ii29n8G+09j2yRDP3z0U4lJCaZjiW1CVhmsKHiarYzfqZJJkpdOeNe96YaszEhl+vOazeGWuEWTq/H+U7h94FXHnDZTLy3DBdnWyvDyJLfOQBW2AssqjSOz8AaM1yZNGbZ/kAIk9X0Xy0K87xVvPG/vb8yoexfTqnGpm47ReF7PZzjQJONK/CtZIjdH3NaVwd6XNDKlEp8KrXwdtYKRnzxveyhsK24DBeleS9ji4LSr5PE8o6cmh387QTDczBzdzZWD3IsUUHmHCB5QIm51sL0s6bevN0z8kxiKiEOW7BrshxI92xxgbq+vRhLx48DtcpUPYUuumSdX/SF/fh3kREMxDoJlv0thKs28sRaU611wWE2Bjv/eGTJ+JAgCRrwEggwtTJbqmTpbS3ngqkJt936PmFrOgvyhuPYuQ==",
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD6UOov95ffsQxVhagYD5mZ7/as+IsNPDSRDu9JzDSwgq2Gj463i74e54UFi//90lK9gF3rJ7Ngs98cOTTCGjzxbWPMA5g12V+Kq9P5L52/zpKwtfGkNlol2+YCbfzoVDSARf3kGtU3QNW2a4yD5TO9e3aGf8pyns7akw9ohOfvucubrsvDves7ajs6mO7hiKNr+0ZNxsm4v2bLvn0fnKJU4u8OI6Hw0ctB3l0/RsgbMKkl0Qz+HQ+TUh/16v3IbBxEkC8+j1BlMOiph4xKOeolXBblEroagW5KAaOw6T32FfPd45YgxYSRyppJV8m4C4Bf1HEg6sFm16QLz4L8rChWurLqXa4nyyGsiTrKC6CBIm3jM9rBOidhaPve5K070kcdYo3Etwx3ssYr9eyqg/O4ndsuWIMQAmQey1rxmYQalZnW5MTImS0hSGwgDJDehd/xJZIJgonDdYZuq3BN2OCdxrtFYW7QjhbWBFNrFLVduNQWVwBbWxnaqnAA+ltQjqqVsB+8SCq8Godd6l5HQZ/cbb7v8wtDOzuMUXu0tVPvtX0ysHKLsjYwK8XE5SA9UTWCyhC/66yBDrEBGnAr/0O/H5LWUmxZJ7qHN2P41nbYiEa9Wucwb+QbbfvjPGa1P1J30YIw6R4zy0i7sZQo4TqsGJiZ8PyEFxHn+7/NOz4p5w==",
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC8qKnQRS0NGuCDcjb+nDiyR/3Q/69PsxUmgUVF1rDJ+Fd6EdrgiJrq4pEXqgf09bE05ROlybu2K8SmjqrDvqxLrdxBW8qQ2XyXVg4mseIRkobmsk85FyTATd5BjJBpWplxLSRYsaePtu5+HcEmPPoPaji0pJqLhG9QO0Ku2XybAVGMntQes84iiMqOOn7UwjZJSws/2p+VcSXKr8IqXd92LVavUL9iTJj2v6uTEjDAc/w4t5ZxuHzGd/zccWPFkmYfqsYpxJRpcZxhBzpZbElCBwxjZA3StF7JkYGP9CyJfXf3Q+83N8aYoNdFKoitlu4LfoC9tsBvy4aDFERG6CQoRUjkYi4LWSTMxjHL7BuMlusgnv0PtEc5Ndb1xuA+hl1AA5YRS8EdOdtg1YKETs/AKcc7WLL/MC3DEYN15u0+aYyZ/sfbJHLMJhJxA1ArCiErCnAODkwXTWakKDXvuWo38GmC8TI6xo4j/48q8wRbd+xJJKYwPVUhw9bbQz5X3r1AWZXgQeF4UFvqygHkDD7PUtrwjq13JcsOGoG7xWhOHOyqQfV9A8BhKqCz/h1WC1xlE6U9uJe9BJJY/Ykc/R0z5Rzt8sHYzKcWOtC+QFo+ys3RVSOqXUQ7Et0EPbKrhyaZ9DTuakYa01gApm3XlBcTRmGV3k6T3joGz6lZ83Bncw==",
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3fXCH9dPIXVO1NMDZNSuFHVNgT22R8lqeVNOaZ8t5Vo4pvsZSWxK5Wpj4gJp3Ck/j9r1cVNLy3ZNQK8F1E/PnmkIxeFIj2RayLGqV5AMmfcxKXvCr+IRrt03xH3PVoiczwVPSKINJ9N7nbzNzm7ZAbXI1Tva+5Crd4a8XXFVLKGGBrn6TTzkLikEAc7keoc8YZ53jIhrh7P6GKxoNej4BevmZWanGqD7bXYOPh/JTGDluIXLOa+jzF8DKwe387iKOj8w0fhr438xQig21hpmKd8fuv1F8L6jiBHfdupGfJCVGLXKbn7s2o6MO4uKDV/8uHedIXjylOsAt5R++taph"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "filesystem": "root",
+        "path": "/etc/hostname",
+        "mode": 420,
+        "overwrite": true,
+        "contents": { "source": "data:,studtop.403.stuartpb.com" }
+      },
+      {
+        "filesystem": "root",
+        "path": "/etc/sudoers",
+        "mode": 440,
+        "overwrite": true,
+        "contents": { "source": "data:;base64,IyMgRGVmYXVsdHMgYmFzZWQgb24gdGhlIGRlZmF1bHQgc3Vkb2VycyBmb3Igb3BlblNVU0UgS3ViaWMKRGVmYXVsdHMgYWx3YXlzX3NldF9ob21lCkRlZmF1bHRzIHNlY3VyZV9wYXRoPSIvdXNyL3NiaW46L3Vzci9iaW46L3NiaW46L2JpbiIKRGVmYXVsdHMgZW52X3Jlc2V0CkRlZmF1bHRzIGVudl9rZWVwID0gIkxBTkcgTENfQUREUkVTUyBMQ19DVFlQRSBMQ19DT0xMQVRFIExDX0lERU5USUZJQ0FUSU9OIExDX01FQVNVUkVNRU5UIExDX01FU1NBR0VTIExDX01PTkVUQVJZIExDX05BTUUgTENfTlVNRVJJQyBMQ19QQVBFUiBMQ19URUxFUEhPTkUgTENfQVRJTUUgTENfQUxMIExBTkdVQUdFIExJTkdVQVMgWERHX1NFU1NJT05fQ09PS0lFIgpEZWZhdWx0cyAhaW5zdWx0cwoKIyMgQ29uZmlndXJhdGlvbiBiYXNlZCBvbiB0aGUgZGVmYXVsdCBzdWRvZXJzIGZyb20gQ29yZU9TIC8gRmxhdGNhciBMaW51eDoKIyMgaHR0cHM6Ly9naXRodWIuY29tL2NvcmVvcy9iYXNlbGF5b3V0L2Jsb2IvbWFzdGVyL2Jhc2VsYXlvdXQvc3Vkb2VycwojIyBodHRwczovL2dpdGh1Yi5jb20vZmxhdGNhci1saW51eC9iYXNlbGF5b3V0L2Jsb2IvZmxhdGNhci1tYXN0ZXIvYmFzZWxheW91dC9zdWRvZXJzCgojIyBlbmFibGUgcm9vdCBhbmQgd2hlZWwKcm9vdCBBTEw9KEFMTCkgQUxMCiV3aGVlbCBBTEw9KEFMTCkgQUxMCgojIyBlbmFibGUgcGFzc3dvcmRsZXNzIGFjY2VzcyBmb3Igc3Vkbwolc3VkbyBBTEw9KEFMTCkgTk9QQVNTV0Q6IEFMTAoKIyMgUmVhZCBkcm9wLWluIGZpbGVzIGZyb20gL2V0Yy9zdWRvZXJzLmQKIyMgKHRoZSAnIycgaGVyZSBkb2VzIG5vdCBpbmRpY2F0ZSBhIGNvbW1lbnQpCiNpbmNsdWRlZGlyIC9ldGMvc3Vkb2Vycy5kCg==" }
+      },
+    ]
+  }
+}
