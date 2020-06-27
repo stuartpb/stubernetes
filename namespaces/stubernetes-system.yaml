@@ -1,0 +1,6 @@
+# used by all HelmReleases in this repo
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: stubernetes-system
+

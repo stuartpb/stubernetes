@@ -1,0 +1,27 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: household-dns
+  namespace: stubernetes-system
+spec:
+  releaseName: household-dns
+  targetNamespace: household-system
+  chart:
+    git: https://github.com/stuartpb/inhouse-dns.git
+    ref: v0.1.0
+  values:
+    coredns:
+      serviceType: LoadBalancer
+      service:
+        annotations:
+          metallb.universe.tf/allow-shared-ip: "true"
+        loadBalancerIP: 192.168.42.53
+      # NOTE: we don't provide the Prometheus Operator ServiceMonitor CRD,
+      # so make sure it's installed first
+      prometheus:
+        service:
+          enabled: true
+        monitor:
+          enabled: true
+    external-dns:
+      annotationFilter: st8s.stuartpb.com/zone=403

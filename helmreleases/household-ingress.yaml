@@ -1,0 +1,33 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: household-ingress
+  namespace: stubernetes-system
+spec:
+  releaseName: household-ingress
+  targetNamespace: household-system
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: contour
+    version: 1.0.0
+  values:
+    contour:
+      resources:
+        limits:
+          cpu: 400m
+          memory: 250Mi
+        requests:
+          cpu: 100m
+          memory: 25Mi
+    envoy:
+      resources:
+        limits:
+          cpu: 400m
+          memory: 250Mi
+        requests:
+          cpu: 100m
+          memory: 25Mi
+      nodeSelector: st8s.stuartpb.com/zone=403
+    prometheus:
+      serviceMonitor:
+        enabled: true

@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metallb-system
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: metallb
+  namespace: stubernetes-system
+spec:
+  releaseName: metallb
+  targetNamespace: metallb-system
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: metallb
+    version: 0.1.14
+  values:
+    controller:
+      image:
+        repository: metallb/controller
+        tag: v0.9.3
+      resources:
+        limits:
+          cpu: 100m
+          memory: 100Mi
+    speaker:
+      image:
+        repository: metallb/speaker
+        tag: v0.9.3
+      resources:
+        requests:
+          memory: 25Mi
+          cpu: 25m
+        limits:
+          cpu: 100m
+          memory: 100Mi
+    configInline: |
+      address-pools:
+      - name: household-static
+        protocol: layer2
+        addresses:
+        - 192.168.42.0 - 192.168.42.250
+        auto-assign: false
+      - name: household-dynamic
+        protocol: layer2
+        addresses:
+        - 192.168.32.0 - 192.168.32.250
+    prometheus:
+      serviceMonitor:
+        enabled: true

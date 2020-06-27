@@ -1,0 +1,11 @@
+# XXX not yet finshed
+# these resources are currently in the experimental, manual stage
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: storage-classes
+  namespace: stubernetes-system
+spec:
+  chart:
+    git: https://github.com/stuartpb/openebs-storage-chart.git
+    ref: master

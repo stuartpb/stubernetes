@@ -1,0 +1,5 @@
+# used by household-dns, household-ingress
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: household-system
