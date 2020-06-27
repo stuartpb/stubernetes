@@ -11,6 +11,9 @@ spec:
     ref: v0.1.0
   values:
     coredns:
+      resources:
+        limits:
+          cpu: 1
       serviceType: LoadBalancer
       service:
         annotations:
