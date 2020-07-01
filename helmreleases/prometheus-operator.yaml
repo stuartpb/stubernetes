@@ -18,17 +18,15 @@ spec:
   values:
     fullnameOverride: pop
     prometheus:
-      service:
+      ingress:
+        hosts: [alerts.prometheus.internal]
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: alerts.prometheus.internal
-          st8s.stuartpb.com/internal-name: coredns
-        type: LoadBalancer
+          st8s.stuartpb.com/zone: "403"
     grafana:
-      service:
+      ingress:
+        hosts: [grafana.prometheus.internal]
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: grafana.prometheus.internal
-          st8s.stuartpb.com/internal-name: coredns
-        type: LoadBalancer
+          st8s.stuartpb.com/zone: "403"
     storageSpec:
       volumeClaimTemplate:
         metadata:
