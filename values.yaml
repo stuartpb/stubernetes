@@ -11,5 +11,8 @@ weave-net:
   fullnameOverride: weave-net
   nameOverride: weave-net
 helm-operator: # see https://hub.helm.sh/charts/fluxcd/helm-operator
+  image:
+    repository: docker.io/raspbernetes/helm-operator
+    tag: v1.1.0
   helm:
     versions: v3
