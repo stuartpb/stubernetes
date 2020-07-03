@@ -1,0 +1,32 @@
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  name: rook-ceph
+  namespace: rook-ceph
+spec:
+  cephVersion:
+    # see the "Cluster Settings" section below for more details on which image of ceph to run
+    image: ceph/ceph:v14.2.9
+  dataDirHostPath: /var/lib/rook
+  dashboard:
+    enabled: true
+  monitoring:
+    enabled: true
+  mon:
+    count: 3
+    allowMultiplePerNode: true
+  storage:
+    useAllNodes: true
+    #nodes:
+    #- name: studrang.nodes.403.stuartpb.com
+    useAllDevices: true
+  placement:
+    osd:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: st8s.stuartpb.com/storage-plane
+              operator: In
+              values:
+              - rook-ceph

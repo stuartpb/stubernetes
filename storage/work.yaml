@@ -1,34 +1,40 @@
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: work-pool
+  namespace: rook-ceph
+spec:
+  failureDomain: osd
+  replicated:
+    size: 3
+---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: work
-  annotations:
-    openebs.io/cas-type: cstor
-    cas.openebs.io/config: |
-      - name: StoragePoolClaim
-        value: "cstor-work-pool"
-      - name: ReplicaCount
-        value: "1"
-provisioner: openebs.io/provisioner-iscsi
----
-apiVersion: openebs.io/v1alpha1
-kind: StoragePoolClaim
-metadata:
-  name: cstor-work-pool
-  namespace: openebs
-  annotations:
-    cas.openebs.io/config: |
-      - name: PoolResourceRequests
-        value: |-
-            memory: 100Mi
-      - name: PoolResourceLimits
-        value: |-
-            memory: 4Gi
-spec:
-  name: cstor-work-pool
-  type: disk
-  poolSpec:
-    poolType: striped
-  blockDevices:
-    blockDeviceList:
-    - blockdevice-50bfc93f4a03ff39b6219fed5965fe7b
+   name: work
+# Change "rook-ceph" provisioner prefix to match the operator namespace if needed
+provisioner: rook-ceph.rbd.csi.ceph.com
+parameters:
+  # clusterID is the namespace where the rook cluster is running
+  clusterID: rook-ceph
+  # Ceph pool into which the RBD image shall be created
+  pool: work-pool
+
+  # RBD image format. Defaults to "2".
+  imageFormat: "2"
+
+  # RBD image features. Available for imageFormat: "2". CSI RBD currently supports only `layering` feature.
+  imageFeatures: layering
+
+  # The secrets contain Ceph admin credentials.
+  csi.storage.k8s.io/provisioner-secret-name: rook-csi-rbd-provisioner
+  csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+  csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
+  csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
+
+  # Specify the filesystem type of the volume. If not specified, csi-provisioner
+  # will set default as `ext4`.
+  #csi.storage.k8s.io/fstype: xfs
+
+# Delete the rbd volume when a PVC is deleted
+reclaimPolicy: Retain
