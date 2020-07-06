@@ -14,10 +14,13 @@ spec:
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: prometheus-operator
-    version: 8.15.6
+    version: 8.15.8
   values:
     fullnameOverride: pop
     prometheus:
+      prometheusSpec:
+        nodeSelector:
+          kubernetes.io/arch: amd64
       ingress:
         hosts: [alerts.prometheus.internal]
         annotations:

@@ -9,7 +9,7 @@ spec:
   chart:
     repository: https://charts.bitnami.com/bitnami
     name: contour
-    version: 1.0.0
+    version: 1.0.2
   values:
     contour:
       resources:

@@ -8,7 +8,8 @@ spec:
   targetNamespace: household-system
   chart:
     git: https://github.com/stuartpb/inhouse-dns.git
-    ref: v0.1.0
+    ref: v0.1.2
+    path: '/'
   values:
     coredns:
       resources:
