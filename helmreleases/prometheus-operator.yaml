@@ -22,7 +22,7 @@ spec:
         nodeSelector:
           kubernetes.io/arch: amd64
       ingress:
-        hosts: [alerts.prometheus.internal]
+        hosts: [webui.prometheus.internal]
         annotations:
           st8s.stuartpb.com/zone: "403"
     grafana:
