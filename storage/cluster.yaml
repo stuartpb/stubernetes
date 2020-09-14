@@ -16,17 +16,18 @@ spec:
     count: 3
     allowMultiplePerNode: true
   storage:
-    useAllNodes: true
-    #nodes:
-    #- name: studrang.nodes.403.stuartpb.com
+    useAllNodes: false
+    nodes:
+    - name: stuby.403.testtrack4.com
+    - name: stuphire.403.testtrack4.com
     useAllDevices: true
-  placement:
-    osd:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: st8s.stuartpb.com/storage-plane
-              operator: In
-              values:
-              - rook-ceph
+  # placement:
+  #   osd:
+  #     nodeAffinity:
+  #       requiredDuringSchedulingIgnoredDuringExecution:
+  #         nodeSelectorTerms:
+  #         - matchExpressions:
+  #           - key: st8s.testtrack4.com/storage-plane
+  #             operator: In
+  #             values:
+  #             - rook-ceph

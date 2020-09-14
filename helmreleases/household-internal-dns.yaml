@@ -1,10 +1,10 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: household-dns
+  name: household-internal-dns
   namespace: stubernetes-system
 spec:
-  releaseName: household-dns
+  releaseName: household-internal-dns
   targetNamespace: household-system
   chart:
     git: https://github.com/stuartpb/inhouse-dns.git
@@ -28,4 +28,9 @@ spec:
         monitor:
           enabled: true
     external-dns:
-      annotationFilter: st8s.stuartpb.com/zone=403
+      annotationFilter: st8s.testtrack4.com/zone=403
+      nodeSelector:
+        kubernetes.io/arch: amd64
+    etcd:
+      nodeSelector:
+        kubernetes.io/arch: amd64

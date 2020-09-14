@@ -6,30 +6,37 @@ metadata:
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: prometheus-operator
+  name: kube-prometheus-stack
   namespace: stubernetes-system
 spec:
-  releaseName: prometheus-operator
+  releaseName: kube-prometheus-stack
   targetNamespace: prometheus
   chart:
-    repository: https://kubernetes-charts.storage.googleapis.com
-    name: prometheus-operator
-    version: 8.15.8
+    repository: https://prometheus-community.github.io/helm-charts
+    name: kube-prometheus-stack
+    version: 9.4.1
   values:
-    fullnameOverride: pop
+    fullnameOverride: kps
     prometheus:
       prometheusSpec:
         nodeSelector:
           kubernetes.io/arch: amd64
       ingress:
+        enabled: true
         hosts: [webui.prometheus.internal]
         annotations:
-          st8s.stuartpb.com/zone: "403"
+          st8s.testtrack4.com/zone: "403"
+    prometheusOperator:
+      nodeSelector:
+        kubernetes.io/arch: amd64
     grafana:
       ingress:
+        enabled: true
         hosts: [grafana.prometheus.internal]
         annotations:
-          st8s.stuartpb.com/zone: "403"
+          st8s.testtrack4.com/zone: "403"
+      nodeSelector:
+        kubernetes.io/arch: amd64
     storageSpec:
       volumeClaimTemplate:
         metadata:
