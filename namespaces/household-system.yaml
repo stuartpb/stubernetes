@@ -1,5 +1,0 @@
-# used by household-internal-dns, household-contour
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: household-system
