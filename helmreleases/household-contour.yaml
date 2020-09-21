@@ -16,6 +16,7 @@ spec:
     name: contour
     version: 2.0.0
   values:
+    ingressClass: internal
     contour:
       nodeSelector:
         kubernetes.io/arch: amd64
@@ -26,6 +27,8 @@ spec:
         requests:
           cpu: 100m
           memory: 25Mi
+    configInline:
+      ingress-status-address: 192.168.42.80
     envoy:
       resources:
         limits:
@@ -36,6 +39,9 @@ spec:
           memory: 25Mi
       nodeSelector:
         st8s.testtrack4.com/zone: "403"
+        kubernetes.io/arch: amd64
+      service:
+        loadBalancerIP: 192.168.42.80
     prometheus:
       serviceMonitor:
         enabled: true

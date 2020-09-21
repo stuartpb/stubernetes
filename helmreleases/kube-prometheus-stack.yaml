@@ -23,18 +23,24 @@ spec:
           kubernetes.io/arch: amd64
       ingress:
         enabled: true
-        hosts: [webui.prometheus.internal]
+        hosts: [prometheus.internal]
         annotations:
-          st8s.testtrack4.com/zone: "403"
+          kubernetes.io/ingress.class: internal
     prometheusOperator:
       nodeSelector:
         kubernetes.io/arch: amd64
+    alertmanager:
+      ingress:
+        enabled: true
+        hosts: [alertmanager.internal]
+        annotations:
+          kubernetes.io/ingress.class: internal
     grafana:
       ingress:
         enabled: true
-        hosts: [grafana.prometheus.internal]
+        hosts: [grafana.internal]
         annotations:
-          st8s.testtrack4.com/zone: "403"
+          kubernetes.io/ingress.class: internal
       nodeSelector:
         kubernetes.io/arch: amd64
     storageSpec:

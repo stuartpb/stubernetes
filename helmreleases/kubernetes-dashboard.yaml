@@ -14,7 +14,7 @@ spec:
   chart:
     repository: https://kubernetes.github.io/dashboard/
     name: kubernetes-dashboard
-    version: v2.2.0
+    version: v2.7.1
   values:
     extraArgs:
     - --enable-skip-login
@@ -30,3 +30,8 @@ spec:
       create: true
       clusterRoleMetrics: true
       clusterReadOnlyRole: true
+    ingress:
+      enabled: true
+      hosts: [kubernetes-dashboard.internal]
+      annotations:
+        kubernetes.io/ingress.class: internal

@@ -33,7 +33,9 @@ spec:
         monitor:
           enabled: true
     external-dns:
-      annotationFilter: st8s.testtrack4.com/zone=403
+      annotationFilter: kubernetes.io/ingress.class=internal
+      coredns:
+        etcdEndpoints: "http://household-internal-dns-etcd.household-system.svc.cluster.local:2379"
       nodeSelector:
         kubernetes.io/arch: amd64
     etcd:
