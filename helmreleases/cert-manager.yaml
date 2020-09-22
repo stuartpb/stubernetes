@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: stubernetes-system
+spec:
+  releaseName: cert-manager
+  targetNamespace: cert-manager
+  chart:
+    repository: https://charts.jetstack.io
+    name: cert-manager
+    version: v1.0.1

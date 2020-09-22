@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hornhorse
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: hornhorse-external-dns
+  namespace: stubernetes-system
+spec:
+  releaseName: hornhorse-external-dns
+  targetNamespace: hornhorse
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: external-dns
+    version: 3.4.0
+  values:
+    domainFilters: [horn.horse]
+    zoneIdFilters: ["97484d668a8bc6fa2ebbb4955f51a4f4"]
+    provider: cloudflare
+    cloudflare:
+      secretName: hornhorse-cloudflare
+      proxied: false
+    nodeSelector:
+      kubernetes.io/arch: amd64

@@ -30,8 +30,15 @@ spec:
       create: true
       clusterRoleMetrics: true
       clusterReadOnlyRole: true
+    protocolHttp: true
     ingress:
       enabled: true
-      hosts: [kubernetes-dashboard.internal]
+      hosts: [kubernetes-dashboard.horn.horse]
+      tls:
+      - secretName: kubernetes-dashboard-hornhorse-cert
+        hosts: [kubernetes-dashboard.horn.horse]
       annotations:
+        cert-manager.io/cluster-issuer: hornhorse-issuer
+        ingress.kubernetes.io/force-ssl-redirect: "true"
         kubernetes.io/ingress.class: internal
+        kubernetes.io/tls-acme: "true"

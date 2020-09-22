@@ -23,24 +23,42 @@ spec:
           kubernetes.io/arch: amd64
       ingress:
         enabled: true
-        hosts: [prometheus.internal]
+        hosts: [prometheus.horn.horse]
+        tls:
+        - secretName: prometheus-hornhorse-cert
+          hosts: [prometheus.horn.horse]
         annotations:
+          cert-manager.io/cluster-issuer: hornhorse-issuer
+          ingress.kubernetes.io/force-ssl-redirect: "true"
           kubernetes.io/ingress.class: internal
+          kubernetes.io/tls-acme: "true"
     prometheusOperator:
       nodeSelector:
         kubernetes.io/arch: amd64
     alertmanager:
       ingress:
         enabled: true
-        hosts: [alertmanager.internal]
+        hosts: [alertmanager.horn.horse]
+        tls:
+        - secretName: alertmanager-hornhorse-cert
+          hosts: [alertmanager.horn.horse]
         annotations:
+          cert-manager.io/cluster-issuer: hornhorse-issuer
+          ingress.kubernetes.io/force-ssl-redirect: "true"
           kubernetes.io/ingress.class: internal
+          kubernetes.io/tls-acme: "true"
     grafana:
       ingress:
         enabled: true
-        hosts: [grafana.internal]
+        hosts: [grafana.horn.horse]
+        tls:
+        - secretName: grafana-hornhorse-cert
+          hosts: [grafana.horn.horse]
         annotations:
+          cert-manager.io/cluster-issuer: hornhorse-issuer
+          ingress.kubernetes.io/force-ssl-redirect: "true"
           kubernetes.io/ingress.class: internal
+          kubernetes.io/tls-acme: "true"
       nodeSelector:
         kubernetes.io/arch: amd64
     storageSpec:

@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: hornhorse-staging-issuer
+  namespace: cert-manager
+spec:
+  acme:
+    email: s@stuartpb.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: hornhorse-staging-issuer-account-key
+    solvers:
+    - dns01:
+        cloudflare:
+          email: s@stuartpb.com
+          apiTokenSecretRef:
+            name: hornhorse-cloudflare
+            key: cloudflare_api_token
+      selector:
+        dnsZones:
+        - 'horn.horse'
