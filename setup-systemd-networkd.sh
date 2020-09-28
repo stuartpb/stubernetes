@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-zypper install systemd-network
+zypper install -y systemd-network
 systemctl disable wicked.service
 systemctl enable systemd-networkd.service
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
