@@ -29,6 +29,12 @@ cat <<EOF
         "contents": { "source": "$keysource" }
       }
     ]
-  }
+  },
+  "systemd": {
+ 		"units": [{
+ 			"name": "sshd.service",
+ 			"enabled": true
+ 		}]
+ 	}
 }
 EOF

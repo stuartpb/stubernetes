@@ -8,10 +8,10 @@
 
 read -p "Hostname: " hostname
 
-keysource="https://github.com/stuartpb.keys"
+export keysource="https://github.com/stuartpb.keys"
 
 if [[ -n $EMBED_KEYS ]]; then
-  if command -v jq >/dev/null 2>&1; then
+  if [[ -z $DISABLE_JQ ]] && command -v jq >/dev/null 2>&1; then
     keysource="data:,$(curl -s "$keysource" | jq -sRr @uri)"
   else
     keysource="data:;base64,$(curl -s "$keysource" | base64 -w0)"
@@ -29,9 +29,28 @@ if [[ -n $INCLUDE_ROOT_KEYS ]]; then
       }'
 fi
 
+## inspired by https://stackoverflow.com/a/34576956/34799
+arraylines () {
+  sed 's/["\]/\\&/g;s/.*/'"$1"'"&"/;$!s/$/,/'
+}
+
+if [[ -n $CONFIGURE_ROOT_USER ]]; then
+  rootuser='
+  "passwd": {
+    "users": [
+      {
+        "name": "root",
+        "sshAuthorizedKeys": [
+'"$(curl -s "$keysource" | arraylines '          ')"'
+        ]
+      }
+    ]
+  },'
+fi
+
 cat <<EOF
 {
-  "ignition": { "version": "3.1.0" },
+  "ignition": { "version": "3.0.0" },$rootuser
   "storage": {
     "files": [
       {
@@ -52,3 +71,11 @@ cat <<EOF
   }
 }
 EOF
+
+# ,
+#  	"systemd": {
+#  		"units": [{
+#  			"name": "sshd.service",
+#  			"enabled": true
+#  		}]
+#  	}
