@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 
 # Generates a config.ign for use booting a system with my authorized keys.
-# usage: bash mkrootkey.sh >/run/media/$USER/ignition/ignition/config.ign
-# test: bash mkrootkey.sh | jq >/dev/null
+# usage: bash config-imagers/ignition/mkrootkey.sh >/run/media/$USER/ignition/ignition/config.ign
+# test: bash config-imagers/ignition/mkrootkey.sh | jq >/dev/null
 
 # this script assumes you have curl and base64
 

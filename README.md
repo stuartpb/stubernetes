@@ -1,32 +1,40 @@
 # stubernetes-setup
 
-Core definition files for my personal Kubernetes cluster.
+This repository contains utility scripts and resources I use to bootstrap the initial stages of nodes in my personal Kubernetes cluster (running on [OpenSUSE Kubic](https://kubic.opensuse.org/) as of 2020-10-01).
 
-## config.yaml
+They are all laid out to be run from this directory.
 
-This defines the core k3os configuration, which is copied to `/var/lib/rancher/config.yaml`.
+## config-imagers
 
-## manifests/cluster-dns.yaml
+These are scripts that make files to be placed on removable media to configure a freshly-installed system.
 
-This is a copy of the coredns manifest that's been retooled to not conflict with the name used by k3s's default coredns service (which is forcibly deleted on startup due to the `--disable coredns` specified in config.yaml).
+The `combustion` directory contains a script to write a sequence of commands (ie. another script) that will configure a Kubic node to conform to the current specification (as of 2020-10-01):
 
-It is copied to `/var/lib/rancher/k3s/server/manifests/cluster-dns.yaml`, though it could also just be added to the cluster via `kubectl apply`.
+- setting the hostname
+- setting root keys
+- systemd-networkd and systemd-resolved replacing wicked
+  - DHCP on ethernet with search domain
+- ensuring laptops stay on when the lid is closed
 
-## manifests/z.yaml
+The `ignition` directory contains scripts to generate Ignition configuration files for some subset of the above. They are obsolete, and likely to be removed in a future release. The only reason they haven't been removed here is because they are still technically more portable than the Kubic-specific `combustion`, and may be revisited at some point in the future if the cluster migrates away from Kubic.
 
-This is copied to `/var/lib/rancher/k3s/server/manifests/z.yaml` to make a stub version of the `coredns` ConfigMap to be used by `cluster-dns`.
+## files
 
-It is named `z.yaml` so it will come after `coredns.yaml` lexically, as [k3s deletes disabled service assets in lexical order](https://github.com/rancher/k3s/issues/462#issuecomment-491180796). If the `coredns` manifest is restored, the ConfigMap will be deleted on every server boot, and then this manifest will recreate it so that `cluster-dns` can function.
+These are source files, mostly from previous iterations of the project:
 
-Incidentally, I would *really really* like to not run this cluster on k3s.
+-`kubic/dhcp.cfg` is an altered version of a default Kubic config file to set Wicked to not use the hostname from DHCP.
+  - This ultimately didn't solve the problem this config tweak was intended to fix;
+  - In any case, the configuration has moved toward `systemd-networkd` instead, so this file is no longer used.
+- `logind.conf` is the expected state of `/etc/systemd/logind.conf` after running `steps/disable-lid-switch.sh`.
 
-## Out of scope
+## image-tweakers
 
-This repository does *not* include the YAML that the node was initialized with, which contains only my GitHub username for access by copying the SSH keys:
+These are scripts used to modify/pre-configure a flashed image, rather than relying on a config source like ignition/combustion to configure the installed system on first boot.
 
-```yaml
-sshAuthorizedKeys:
-- github:stuartpb
-```
+The `image-tweakers/load-root-keys.sh` script mounts the subvolume for `/root` from a given Kubic btrfs partition and copies 
 
-(This also contained my Wi-Fi credentials originally, but I removed them after getting an Ethernet adapter.)
+## steps
+
+These are separate shell snippet scripts for each step taken by the `combustion` script, to be composed as needed.
+
+They can also be invoked manually, eg. by executing redirected output from a curl request to the repo on GitHub within an instance of `transactional-update shell`.

@@ -1,4 +1,3 @@
-#!/usr/bin/bash
 zypper install -y systemd-network
 systemctl disable wicked.service
 systemctl enable systemd-networkd.service
