@@ -6,7 +6,7 @@ metadata:
 spec:
   cephVersion:
     # see the "Cluster Settings" section below for more details on which image of ceph to run
-    image: ceph/ceph:v14.2.9
+    image: ceph/ceph:v15.2.5
   dataDirHostPath: /var/lib/rook
   dashboard:
     enabled: true
@@ -15,19 +15,17 @@ spec:
   mon:
     count: 3
     allowMultiplePerNode: true
-  storage:
-    useAllNodes: false
-    nodes:
-    - name: stuby.403.testtrack4.com
-    - name: stuphire.403.testtrack4.com
-    useAllDevices: true
-  # placement:
-  #   osd:
-  #     nodeAffinity:
-  #       requiredDuringSchedulingIgnoredDuringExecution:
-  #         nodeSelectorTerms:
-  #         - matchExpressions:
-  #           - key: st8s.testtrack4.com/storage-plane
-  #             operator: In
-  #             values:
-  #             - rook-ceph
+  driveGroups:
+  - name: storberry
+    spec:
+      data_devices:
+        all: true
+    placement:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: st8s.testtrack4.com/storage-group
+              operator: In
+              values:
+              - storberry

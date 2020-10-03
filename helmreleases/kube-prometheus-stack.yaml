@@ -19,6 +19,14 @@ spec:
     fullnameOverride: kps
     prometheus:
       prometheusSpec:
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: throwaway
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 50Gi
         nodeSelector:
           kubernetes.io/arch: amd64
       ingress:
@@ -61,13 +69,3 @@ spec:
           kubernetes.io/tls-acme: "true"
       nodeSelector:
         kubernetes.io/arch: amd64
-    storageSpec:
-      volumeClaimTemplate:
-        metadata:
-          name: ps # additional protection against https://github.com/helm/charts/issues/13170
-        spec:
-          storageClassName: bulk
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 50Gi
