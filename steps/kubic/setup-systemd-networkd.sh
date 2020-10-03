@@ -1,9 +1,11 @@
 zypper install -y systemd-network
 systemctl disable wicked.service
-systemctl enable systemd-networkd.service
+# disable DNSSEC globally
+sed -i '/#? *DNSSEC=/{s/^#//;s/=.*$/=no/}' /etc/systemd/resolved.conf
+systemctl enable systemd-networkd.service systemd-resolved.service
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 echo '[Match]
-Name=en*
+Type=ether
 
 [Network]
 DHCP=yes
