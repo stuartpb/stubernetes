@@ -1,6 +1,6 @@
 apiVersion: 2
 name: weave-net
-version: 2.6.4
+version: 2.7.0
 # kubeVersion: A SemVer range of compatible Kubernetes versions (optional)
 description: Templates for Weave Net based on a lightly-modified version of Kubic's default
 type: application

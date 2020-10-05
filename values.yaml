@@ -2,11 +2,11 @@ weave-net:
   # let's not screw with thinking we know better than Kubic's packagers
   image:
     repository: registry.opensuse.org/kubic/weave-kube
-    tag: 2.6.4
+    tag: 2.7.0
   npc:
     image:
       repository: registry.opensuse.org/kubic/weave-npc
-      tag: 2.6.4
+      tag: 2.7.0
   # install weave-net to its default not-part-of-this-chart name
   fullnameOverride: weave-net
   nameOverride: weave-net
