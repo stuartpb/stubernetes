@@ -14,7 +14,18 @@ spec:
   chart:
     repository: https://charts.rook.io/release
     name: rook-ceph
-    version: 1.4.4
+    version: 1.4.5
   values:
-    image:
-      tag: v1.4.4-17.gd86d6cd
+    csi:
+      cephcsi:
+        image: quay.io/cephcsi/cephcsi:v3.1.1
+      registrar:
+        image: k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.0.1
+      # provisioner:
+      #   image: k8s.gcr.io/sig-storage/csi-provisioner:v2.0.0
+      snapshotter:
+        image: k8s.gcr.io/sig-storage/csi-snapshotter:v3.0.0
+      # attacher:
+      #   image: k8s.gcr.io/sig-storage/csi-attacher:v3.0.0
+      # resizer:
+      #   image: k8s.gcr.io/sig-storage/csi-resizer:v1.0.0

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rook-ceph-mgr-dashboard
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: "internal"
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: hornhorse-issuer
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  tls:
+   - hosts:
+     - rook-ceph.horn.horse
+     secretName: rook-ceph-hornhorse-cert
+  rules:
+  - host: rook-ceph.horn.horse
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rook-ceph-mgr-dashboard
+            port:
+              name: http-dashboard

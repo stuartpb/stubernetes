@@ -18,8 +18,10 @@ spec:
   driveGroups:
   - name: storberry
     spec:
+      db_devices:
+        size: ':128G'
       data_devices:
-        all: true
+        size: '1T:'
     placement:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:

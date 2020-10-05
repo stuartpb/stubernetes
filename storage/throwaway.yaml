@@ -8,7 +8,6 @@ spec:
   replicated:
     size: 1
     requireSafeReplicaSize: false
-  deviceClass: hdd
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass

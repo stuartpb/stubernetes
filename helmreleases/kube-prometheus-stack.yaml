@@ -14,7 +14,7 @@ spec:
   chart:
     repository: https://prometheus-community.github.io/helm-charts
     name: kube-prometheus-stack
-    version: 9.4.1
+    version: 9.4.8
   values:
     fullnameOverride: kps
     prometheus:
@@ -55,6 +55,9 @@ spec:
           ingress.kubernetes.io/force-ssl-redirect: "true"
           kubernetes.io/ingress.class: internal
           kubernetes.io/tls-acme: "true"
+    kube-state-metrics:
+      nodeSelector:
+        kubernetes.io/arch: amd64
     grafana:
       ingress:
         enabled: true
