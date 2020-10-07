@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: node-feature-discovery
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: node-feature-discovery
+  namespace: stubernetes-system
+spec:
+  releaseName: node-feature-discovery
+  targetNamespace: node-feature-discovery
+  chart:
+    repository: https://k8s-at-home.com/charts/
+    name: node-feature-discovery
+    version: 2.0.0

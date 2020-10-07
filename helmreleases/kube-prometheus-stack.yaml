@@ -36,7 +36,7 @@ spec:
         - secretName: prometheus-hornhorse-cert
           hosts: [prometheus.horn.horse]
         annotations:
-          cert-manager.io/cluster-issuer: hornhorse-issuer
+          cert-manager.io/cluster-issuer: hornhorse-staging-issuer
           ingress.kubernetes.io/force-ssl-redirect: "true"
           kubernetes.io/ingress.class: internal
           kubernetes.io/tls-acme: "true"
@@ -51,7 +51,7 @@ spec:
         - secretName: alertmanager-hornhorse-cert
           hosts: [alertmanager.horn.horse]
         annotations:
-          cert-manager.io/cluster-issuer: hornhorse-issuer
+          cert-manager.io/cluster-issuer: hornhorse-staging-issuer
           ingress.kubernetes.io/force-ssl-redirect: "true"
           kubernetes.io/ingress.class: internal
           kubernetes.io/tls-acme: "true"
@@ -66,7 +66,7 @@ spec:
         - secretName: grafana-hornhorse-cert
           hosts: [grafana.horn.horse]
         annotations:
-          cert-manager.io/cluster-issuer: hornhorse-issuer
+          cert-manager.io/cluster-issuer: hornhorse-staging-issuer
           ingress.kubernetes.io/force-ssl-redirect: "true"
           kubernetes.io/ingress.class: internal
           kubernetes.io/tls-acme: "true"

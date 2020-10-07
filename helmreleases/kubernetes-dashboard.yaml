@@ -38,7 +38,7 @@ spec:
       - secretName: kubernetes-dashboard-hornhorse-cert
         hosts: [kubernetes-dashboard.horn.horse]
       annotations:
-        cert-manager.io/cluster-issuer: hornhorse-issuer
+        cert-manager.io/cluster-issuer: hornhorse-staging-issuer
         ingress.kubernetes.io/force-ssl-redirect: "true"
         kubernetes.io/ingress.class: internal
         kubernetes.io/tls-acme: "true"
