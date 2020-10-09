@@ -13,3 +13,6 @@ spec:
         name: k8s-at-home
         namespace: gotk-system
   interval: 10m
+  values:
+    image:
+      repository: docker.io/raspbernetes/node-feature-discovery
