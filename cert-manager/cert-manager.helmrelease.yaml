@@ -11,4 +11,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: bitnami
+        namespace: gotk-system
   interval: 10m
