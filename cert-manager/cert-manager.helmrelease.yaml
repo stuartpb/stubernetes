@@ -10,6 +10,6 @@ spec:
       version: v1.0.2
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: jetstack
         namespace: gotk-system
   interval: 10m
