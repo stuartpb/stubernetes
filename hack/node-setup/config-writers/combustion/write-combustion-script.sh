@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 # Generates a combustion script to configure a fresh Stubernetes node for adminstration.
-# usage: SET_HOSTNAME=foobar bash config-imagers/combustion/mk-combustion-script.sh >/run/media/$USER/ignition/combustion/script
+# usage: SET_HOSTNAME=foobar bash config-writers/combustion/write-combustion-script.sh >/run/media/$USER/ignition/combustion/script
 
 echo "#!/usr/bin/bash"
 

@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 
 # Generates a config.ign for use initializing a Stubernetes node.
-# usage: bash mksetup.sh >/run/media/$USER/ignition/ignition/config.ign
-# test: bash mksetup.sh | jq >/dev/null
+# usage: bash write-setup.sh >/run/media/$USER/ignition/ignition/config.ign
+# test: bash write-setup.sh | jq >/dev/null
 
 # this script assumes you have base64
 

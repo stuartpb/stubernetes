@@ -1,10 +1,10 @@
-# stubernetes-setup
+# node-setup
 
-This repository contains utility scripts and resources I use to bootstrap the initial stages of nodes in my personal Kubernetes cluster (running on [OpenSUSE Kubic](https://kubic.opensuse.org/) as of 2020-10-01).
+This directory contains utility scripts and resources I use to bootstrap the initial stages of nodes in my personal Kubernetes cluster (running on [OpenSUSE Kubic](https://kubic.opensuse.org/) as of 2020-10-01).
 
 They are all laid out to be run from this directory.
 
-## config-imagers
+## config-writers
 
 These are scripts that make files to be placed on removable media to configure a freshly-installed system.
 
@@ -27,11 +27,11 @@ These are source files, mostly from previous iterations of the project:
   - In any case, the configuration has moved toward `systemd-networkd` instead, so this file is no longer used.
 - `logind.conf` is the expected state of `/etc/systemd/logind.conf` after running `steps/disable-lid-switch.sh`.
 
-## image-tweakers
+## mount-tweakers
 
 These are scripts used to modify/pre-configure a flashed image, rather than relying on a config source like ignition/combustion to configure the installed system on first boot.
 
-The `image-tweakers/load-root-keys.sh` script mounts the subvolume for `/root` from a given Kubic btrfs partition and copies 
+The `mount-tweakers/load-root-keys.sh` script mounts the subvolume for `/root` from a given Kubic btrfs partition and copies
 
 ## steps
 

@@ -1,6 +1,6 @@
 #! /bin/sh
 
-# usage: sudo bash image-tweakers/load-root-keys.sh /dev/sd${TARGET_DRIVE_LETTER}2 https://github.com/$GITHUB_USER.keys
+# usage: sudo bash mount-tweakers/load-root-keys.sh /dev/sd${TARGET_DRIVE_LETTER}2 https://github.com/$GITHUB_USER.keys
 
 if [ $EUID -ne 0 ]; then
   echo "This script must be run as root"
