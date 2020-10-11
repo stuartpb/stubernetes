@@ -11,7 +11,7 @@ resources:
 #- ./arch-pinning # patches only
 #- ./compute-resources # patches only
 
-patchesJson6902:
+patches:
 
 # ./hats
 - target:
