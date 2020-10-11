@@ -11,7 +11,7 @@ resources:
 #- ./arch-pinning # patches only
 #- ./compute-resources # patches only
 
-patchesJson6902:
+patches:
 
 # ./hats
 - target:
@@ -33,49 +33,14 @@ patchesJson6902:
 - target:
     kind: Node
     version: v1
-    name: wpi-garnet # wpi-(garnet|amethyst|pearl)
-  path: ./storage/storberry/storberry.nodes.patch.yaml
-- target:
-    kind: Node
-    version: v1
-    name: wpi-amethyst # wpi-(garnet|amethyst|pearl)
-  path: ./storage/storberry/storberry.nodes.patch.yaml
-- target:
-    kind: Node
-    version: v1
-    name: wpi-pearl # wpi-(garnet|amethyst|pearl)
+    name: wpi-(garnet|amethyst|pearl)
   path: ./storage/storberry/storberry.nodes.patch.yaml
 
 # ./zones/403
 - target:
     kind: Node
     version: v1
-    name: mpi-rose # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
-- target:
-    kind: Node
-    version: v1
-    name: wpi-garnet # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
-- target:
-    kind: Node
-    version: v1
-    name: wpi-amethyst # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
-- target:
-    kind: Node
-    version: v1
-    name: wpi-pearl # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
-- target:
-    kind: Node
-    version: v1
-    name: wpc-gomez # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
-- target:
-    kind: Node
-    version: v1
-    name: wpc-morticia # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
+    name: (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
   path: ./zones/403/zone-403.nodes.patch.yaml
 - target:
     kind: HelmRelease
@@ -92,16 +57,10 @@ patchesJson6902:
     namespace: metallb-system
   path: ./zones/403/metallb.helmrelease.patch.yaml
 
-patches:
-
 # ./zones/hornhorse
 - target:
     kind: ClusterIssuer
-    name: stuartpb-letsencrypt
-  path: ./zones/hornhorse/hornhorse-acme-solver.clusterissuer.patch.yaml
-- target:
-    kind: ClusterIssuer
-    name: stuartpb-letsencrypt-staging
+    name: stuartpb-letsencrypt(-staging)?
   path: ./zones/hornhorse/hornhorse-acme-solver.clusterissuer.patch.yaml
 
 # ./zones/hornhorse/ingress
