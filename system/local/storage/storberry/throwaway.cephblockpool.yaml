@@ -1,7 +1,7 @@
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
-  name: throwaway-pool
+  name: throwaway
   namespace: rook-ceph
 spec:
   failureDomain: host

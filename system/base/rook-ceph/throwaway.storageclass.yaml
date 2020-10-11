@@ -8,7 +8,7 @@ parameters:
   # clusterID is the namespace where the rook cluster is running
   clusterID: rook-ceph
   # Ceph pool into which the RBD image shall be created
-  pool: throwaway-pool
+  pool: throwaway
 
   # RBD image format. Defaults to "2".
   imageFormat: "2"
