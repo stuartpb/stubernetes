@@ -19,6 +19,9 @@ spec:
       nodeSelector: {}
     configInline: {}
     envoy:
+      image:
+        repository: envoyproxy/envoy
+        tag: v1.16.0
       nodeSelector: {}
       service: {}
     prometheus:
