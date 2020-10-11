@@ -1,0 +1,15 @@
+- op: add
+  path: /spec/values/controller/resources
+  value:
+    limits:
+      cpu: 100m
+      memory: 100Mi
+- op: add
+  path: /spec/values/speaker/resources
+  value:
+    requests:
+      memory: 25Mi
+      cpu: 25m
+    limits:
+      cpu: 100m
+      memory: 100Mi

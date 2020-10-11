@@ -1,0 +1,12 @@
+- op: add
+  path: /spec/values/prometheus/prometheusSpec/nodeSelector/kubernetes.io~1arch
+  value: amd64
+- op: add
+  path: /spec/values/prometheusOperator/nodeSelector/kubernetes.io~1arch
+  value: amd64
+- op: add
+  path: /spec/values/kube-state-metrics/nodeSelector/kubernetes.io~1arch
+  value: amd64
+- op: add
+  path: /spec/values/grafana/nodeSelector/kubernetes.io~1arch
+  value: amd64

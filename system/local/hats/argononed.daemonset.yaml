@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: argononed
+  namespace: argononed
+  labels:
+    app.kubernetes.io/name: argononed
+spec:
+  selector:
+    matchLabels:
+      name: argononed
+  template:
+    metadata:
+      labels:
+        name: argononed
+    spec:
+      nodeSelector:
+        st8s.testtrack4.com/hats: argon1
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: argononed
+        image: docker.io/jmercha/argononed
+        securityContext:
+          privileged: true

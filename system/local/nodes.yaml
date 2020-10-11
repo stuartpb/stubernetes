@@ -1,0 +1,35 @@
+kind: Node
+apiVersion: v1
+metadata:
+  name: mpi-rose
+  labels: {}
+---
+kind: Node
+apiVersion: v1
+metadata:
+  name: wpi-garnet
+  labels: {}
+---
+kind: Node
+apiVersion: v1
+metadata:
+  name: wpi-amethyst
+  labels: {}
+---
+kind: Node
+apiVersion: v1
+metadata:
+  name: wpi-pearl
+  labels: {}
+---
+kind: Node
+apiVersion: v1
+metadata:
+  name: wpc-gomez
+  labels: {}
+---
+kind: Node
+apiVersion: v1
+metadata:
+  name: wpc-morticia
+  labels: {}

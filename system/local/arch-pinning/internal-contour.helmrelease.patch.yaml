@@ -1,0 +1,6 @@
+- op: add
+  path: /spec/values/contour/nodeSelector/kubernetes.io~1arch
+  value: amd64
+- op: add
+  path: /spec/values/envoy/nodeSelector/kubernetes.io~1arch
+  value: amd64

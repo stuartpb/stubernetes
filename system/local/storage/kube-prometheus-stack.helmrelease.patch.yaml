@@ -1,0 +1,10 @@
+- op: add
+  path: /spec/values/prometheus/prometheusSpec/storageSpec
+  value:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: throwaway
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 50Gi

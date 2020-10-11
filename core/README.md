@@ -8,4 +8,4 @@ This is a Kustomization that installs the core components for Stubernetes:
 
 ## Installing
 
-`kubectl apply -k https://github.com/stuartpb/stubernetes-core`
+`kustomize build github.com/stuartpb/stubernetes/core | kubectl apply -f -` or something like that - honestly, I currently just roll these out one by one from a checkout.

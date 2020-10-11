@@ -8,6 +8,5 @@ resources:
 - ./node-feature-discovery
 - ./rook-ceph
 - ./internal-ingress
-- ./hornhorse
 - ./kube-prometheus-stack
 - ./kubernetes-dashboard

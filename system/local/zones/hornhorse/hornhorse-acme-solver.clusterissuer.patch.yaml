@@ -1,0 +1,12 @@
+- op: add
+  path: /spec/acme/solvers/-
+  value:
+    dns01:
+      cloudflare:
+        email: s@stuartpb.com
+        apiTokenSecretRef:
+          name: hornhorse-cloudflare
+          key: cloudflare_api_token
+    selector:
+      dnsZones:
+      - 'horn.horse'

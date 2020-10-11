@@ -1,0 +1,18 @@
+- op: add
+  path: /spec/values/contour/resources
+  value:
+    limits:
+      cpu: 400m
+      memory: 250Mi
+    requests:
+      cpu: 100m
+      memory: 25Mi
+- op: add
+  path: /spec/values/envoy/resources
+  value:
+    limits:
+      cpu: 400m
+      memory: 250Mi
+    requests:
+      cpu: 100m
+      memory: 25Mi

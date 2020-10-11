@@ -1,0 +1,13 @@
+- op: add
+  path: /spec/values/configInline
+  value: |
+    address-pools:
+    - name: household-static
+      protocol: layer2
+      addresses:
+      - 192.168.42.0 - 192.168.42.250
+      auto-assign: false
+    - name: household-dynamic
+      protocol: layer2
+      addresses:
+      - 192.168.32.0 - 192.168.32.250

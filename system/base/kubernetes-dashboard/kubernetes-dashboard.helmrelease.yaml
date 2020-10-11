@@ -17,26 +17,8 @@ spec:
     extraArgs:
     - --enable-skip-login
     - --enable-insecure-login
-    resources:
-      requests:
-        cpu: 100m
-        memory: 64Mi
-      limits:
-        cpu: 2
-        memory: 200Mi
     rbac:
       create: true
       clusterRoleMetrics: true
       clusterReadOnlyRole: true
     protocolHttp: true
-    ingress:
-      enabled: true
-      hosts: [kubernetes-dashboard.horn.horse]
-      tls:
-      - secretName: kubernetes-dashboard-hornhorse-cert
-        hosts: [kubernetes-dashboard.horn.horse]
-      annotations:
-        cert-manager.io/cluster-issuer: hornhorse-staging
-        ingress.kubernetes.io/force-ssl-redirect: "true"
-        kubernetes.io/ingress.class: internal
-        kubernetes.io/tls-acme: "true"

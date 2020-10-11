@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: stuartpb-letsencrypt
+  namespace: cert-manager
+spec:
+  acme:
+    email: s@stuartpb.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: hornhorse-issuer-account-key
+    solvers: []
