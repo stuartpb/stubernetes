@@ -1,160 +1,172 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ../base
+
+# base components
+- ./crds
+- ./helmrepositories
+- ./metallb
+- ./cert-manager
+- ./node-feature-discovery
+- ./rook-ceph
+- ./internal-ingress
+- ./kube-prometheus-stack
+- ./kubernetes-dashboard
+
+# local kustomizations
 - ./nodes.yaml
-- ./hats
-- ./storage
-#- ./zones/403 # patches only
-- ./zones/hornhorse
-- ./issuers
-#- ./arch-pinning # patches only
-#- ./compute-resources # patches only
+- ./local/hats
+- ./local/storage
+#- ./local/zones/403 # patches only
+- ./local/zones/hornhorse
+- ./local/issuers
+#- ./local/arch-pinning # patches only
+#- ./local/compute-resources # patches only
 
 patches:
 
-# ./hats
+# ./local/hats
 - target:
     kind: Node
     version: v1
     name: wpi-pearl
-  path: ./hats/argon1.nodes.patch.yaml
+  path: ./local/hats/argon1.nodes.patch.yaml
 
-# ./storage
+# ./local/storage
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: kube-prometheus-stack
     namespace: prometheus
-  path: ./storage/kube-prometheus-stack.helmrelease.patch.yaml
+  path: ./local/storage/kube-prometheus-stack.helmrelease.patch.yaml
 
-# ./storage/storberry
+# ./local/storage/storberry
 - target:
     kind: Node
     version: v1
     name: wpi-garnet # wpi-(garnet|amethyst|pearl)
-  path: ./storage/storberry/storberry.nodes.patch.yaml
+  path: ./local/storage/storberry/storberry.nodes.patch.yaml
 - target:
     kind: Node
     version: v1
     name: wpi-amethyst # wpi-(garnet|amethyst|pearl)
-  path: ./storage/storberry/storberry.nodes.patch.yaml
+  path: ./local/storage/storberry/storberry.nodes.patch.yaml
 - target:
     kind: Node
     version: v1
     name: wpi-pearl # wpi-(garnet|amethyst|pearl)
-  path: ./storage/storberry/storberry.nodes.patch.yaml
+  path: ./local/storage/storberry/storberry.nodes.patch.yaml
 
-# ./zones/403
+# ./local/zones/403
 - target:
     kind: Node
     version: v1
     name: mpi-rose # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
+  path: ./local/zones/403/zone-403.nodes.patch.yaml
 - target:
     kind: Node
     version: v1
     name: wpi-garnet # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
+  path: ./local/zones/403/zone-403.nodes.patch.yaml
 - target:
     kind: Node
     version: v1
     name: wpi-amethyst # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
+  path: ./local/zones/403/zone-403.nodes.patch.yaml
 - target:
     kind: Node
     version: v1
     name: wpi-pearl # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
+  path: ./local/zones/403/zone-403.nodes.patch.yaml
 - target:
     kind: Node
     version: v1
     name: wpc-gomez # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
+  path: ./local/zones/403/zone-403.nodes.patch.yaml
 - target:
     kind: Node
     version: v1
     name: wpc-morticia # (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
-  path: ./zones/403/zone-403.nodes.patch.yaml
+  path: ./local/zones/403/zone-403.nodes.patch.yaml
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: internal-contour
     namespace: internal-ingress
-  path: ./zones/403/internal-contour.helmrelease.patch.yaml
+  path: ./local/zones/403/internal-contour.helmrelease.patch.yaml
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: metallb
     namespace: metallb-system
-  path: ./zones/403/metallb.helmrelease.patch.yaml
+  path: ./local/zones/403/metallb.helmrelease.patch.yaml
 
 patches:
 
-# ./zones/hornhorse
+# ./local/zones/hornhorse
 - target:
     kind: ClusterIssuer
     name: stuartpb-letsencrypt
-  path: ./zones/hornhorse/hornhorse-acme-solver.clusterissuer.patch.yaml
+  path: ./local/zones/hornhorse/hornhorse-acme-solver.clusterissuer.patch.yaml
 - target:
     kind: ClusterIssuer
     name: stuartpb-letsencrypt-staging
-  path: ./zones/hornhorse/hornhorse-acme-solver.clusterissuer.patch.yaml
+  path: ./local/zones/hornhorse/hornhorse-acme-solver.clusterissuer.patch.yaml
 
-# ./zones/hornhorse/ingress
+# ./local/zones/hornhorse/ingress
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: kubernetes-dashboard
     namespace: kubernetes-dashboard
-  path: ./zones/hornhorse/ingress/kubernetes-dashboard.helmrelease.patch.yaml
+  path: ./local/zones/hornhorse/ingress/kubernetes-dashboard.helmrelease.patch.yaml
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: kube-prometheus-stack
     namespace: prometheus
-  path: ./zones/hornhorse/ingress/kube-prometheus-stack.helmrelease.patch.yaml
+  path: ./local/zones/hornhorse/ingress/kube-prometheus-stack.helmrelease.patch.yaml
 
-# ./arch-pinning
+# ./local/arch-pinning
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: internal-contour
     namespace: internal-ingress
-  path: ./arch-pinning/internal-contour.helmrelease.patch.yaml
+  path: ./local/arch-pinning/internal-contour.helmrelease.patch.yaml
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: kube-prometheus-stack
     namespace: prometheus
-  path: ./arch-pinning/kube-prometheus-stack.helmrelease.patch.yaml
+  path: ./local/arch-pinning/kube-prometheus-stack.helmrelease.patch.yaml
 
-# ./compute-resources
+# ./local/compute-resources
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: internal-contour
     namespace: internal-ingress
-  path: ./compute-resources/internal-contour.helmrelease.patch.yaml
+  path: ./local/compute-resources/internal-contour.helmrelease.patch.yaml
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: kubernetes-dashboard
     namespace: kubernetes-dashboard
-  path: ./compute-resources/kubernetes-dashboard.helmrelease.patch.yaml
+  path: ./local/compute-resources/kubernetes-dashboard.helmrelease.patch.yaml
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
     name: metallb
     namespace: metallb-system
-  path: ./compute-resources/metallb.helmrelease.patch.yaml
+  path: ./local/compute-resources/metallb.helmrelease.patch.yaml
