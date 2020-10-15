@@ -14,6 +14,7 @@ spec:
         namespace: gotk-system
   interval: 10m
   values:
+    updateStrategy: RollingUpdate
     image:
       repository: docker.io/raspbernetes/kured
     ## not sure I trust the chart's Prometheus stuff to work with this
