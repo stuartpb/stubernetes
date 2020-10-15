@@ -13,7 +13,9 @@ spec:
         name: kured
         namespace: gotk-system
   interval: 10m
-  # values:
+  values:
+    image:
+      repository: docker.io/raspbernetes/kured
     ## not sure I trust the chart's Prometheus stuff to work with this
     ## see https://github.com/weaveworks/kured/pull/209
     # metrics:
