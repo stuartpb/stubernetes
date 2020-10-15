@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: internal-nginx
+  namespace: internal-ingress
+spec:
+  chart:
+    spec:
+      chart: ingress-nginx
+      version: 3.7.1
+      sourceRef:
+        kind: HelmRepository
+        name: ingress-nginx
+        namespace: gotk-system
+  interval: 10m
+  values:
+    controller:
+      ingressClass: internal
+      nodeSelector: {}
+      service: {}
+
