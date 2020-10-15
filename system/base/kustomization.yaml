@@ -6,6 +6,7 @@ resources:
 - ./metallb
 - ./cert-manager
 - ./node-feature-discovery
+- ./kured
 - ./rook-ceph
 - ./internal-ingress
 - ./kube-prometheus-stack

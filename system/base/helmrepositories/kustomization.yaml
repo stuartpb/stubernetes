@@ -7,4 +7,5 @@ resources:
 - ./jetstack.helmrepository.yaml
 - ./rook-release.helmrepository.yaml
 - ./prometheus-community.helmrepository.yaml
+- ./kured.helmrepository.yaml
 - ./kubernetes-dashboard.helmrepository.yaml
