@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
 - ./rook-ceph.cephcluster.yaml
 - ./double.cephblockpool.yaml
-- ./throwaway.cephblockpool.yaml
 - ./st8s3.cephobjectstore.yaml

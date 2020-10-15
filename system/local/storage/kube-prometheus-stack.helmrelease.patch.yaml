@@ -3,7 +3,7 @@
   value:
     volumeClaimTemplate:
       spec:
-        storageClassName: throwaway
+        storageClassName: double
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
