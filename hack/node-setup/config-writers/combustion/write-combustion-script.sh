@@ -24,4 +24,4 @@ curl $ROOT_KEY_SOURCE > /root/.ssh/authorized_keys
 chmod 0600 /root/.ssh/authorized_keys"
 fi
 
-cat steps/disable-lid-switch.sh steps/kubic/setup-systemd-networkd.sh
+cat steps/disable-lid-switch.sh steps/kubic/setup-systemd-networkd.sh steps/kubic/use-kured.sh
