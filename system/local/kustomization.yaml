@@ -46,9 +46,9 @@ patches:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
     version: v2beta1
-    name: internal-nginx
+    name: internal-contour
     namespace: internal-ingress
-  path: ./zones/403/internal-nginx.helmrelease.patch.yaml
+  path: ./zones/403/internal-contour.helmrelease.patch.yaml
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io

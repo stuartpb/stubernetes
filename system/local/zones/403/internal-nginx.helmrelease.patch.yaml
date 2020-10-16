@@ -1,9 +1,0 @@
-# only put internal ingress controllers  within the 403 zone
-- op: add
-  path: /spec/values/controller/nodeSelector/st8s.testtrack4.com~1zone
-  value: "403"
-
-# give internal Ingress its own MetalLB address
-- op: add
-  path: /spec/values/controller/service/loadBalancerIP
-  value: 192.168.42.80
