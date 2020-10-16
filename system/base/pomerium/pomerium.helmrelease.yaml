@@ -16,3 +16,4 @@ spec:
   values:
     config:
       policy: []
+    nodeSelector: {}
