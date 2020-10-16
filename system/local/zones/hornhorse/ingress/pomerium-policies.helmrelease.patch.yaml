@@ -1,0 +1,7 @@
+- op: add
+  path: /spec/values/config/policy/-
+  value:
+  - from: https://alertmanager.horn.horse
+    to: http://kps-alertmanager.prometheus.svc.cluster.local:9093
+    allowed_users:
+      - s@stuartpb.com

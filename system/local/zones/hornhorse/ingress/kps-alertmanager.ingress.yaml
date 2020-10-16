@@ -9,7 +9,7 @@ metadata:
   labels:
     app.kubernetes.io/name: kube-prometheus-stack-alertmanager
   name: kps-alertmanager
-  namespace: prometheus
+  namespace: pomerium
 spec:
   rules:
   - host: alertmanager.horn.horse
@@ -17,9 +17,9 @@ spec:
       paths:
       - backend:
           service:
-            name: kps-alertmanager
+            name: pomerium-proxy
             port:
-              number: 9093
+              name: https
         path: /
         pathType: Prefix
   tls:
