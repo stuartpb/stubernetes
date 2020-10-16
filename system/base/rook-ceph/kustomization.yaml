@@ -4,3 +4,4 @@ resources:
 - ./rook-ceph.namespace.yaml
 - ./rook-ceph.helmrelease.yaml
 - ./double.storageclass.yaml
+- ./throwaway.storageclass.yaml

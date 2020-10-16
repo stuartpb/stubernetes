@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-   name: double
+   name: throwaway
 # Change "rook-ceph" provisioner prefix to match the operator namespace if needed
 provisioner: rook-ceph.rbd.csi.ceph.com
 parameters:
@@ -26,5 +26,5 @@ parameters:
   # will set default as `ext4`.
   #csi.storage.k8s.io/fstype: xfs
 
-# Don't delete the rbd volume when a PVC is deleted
-reclaimPolicy: Retain
+# Delete the rbd volume when a PVC is deleted
+reclaimPolicy: Delete
