@@ -1,0 +1,17 @@
+- op: add
+  path: /spec/values/config/rootDomain
+  value: horn.horse
+- op: add
+  path: /spec/values/extraEnvFrom
+  value:
+  - secretRef:
+      name: hornhorse-github
+- op: add
+  path: /spec/values/config/ingress
+  value:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: stuartpb-letsencrypt-staging
+      ingress.kubernetes.io/force-ssl-redirect: "true"
+      kubernetes.io/ingress.class: internal
+      kubernetes.io/tls-acme: "true"

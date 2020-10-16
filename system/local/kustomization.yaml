@@ -62,6 +62,13 @@ patches:
     kind: ClusterIssuer
     name: stuartpb-letsencrypt(-staging)?
   path: ./zones/hornhorse/hornhorse-acme-solver.clusterissuer.patch.yaml
+- target:
+    kind: HelmRelease
+    group: helm.toolkit.fluxcd.io
+    version: v2beta1
+    name: pomerium
+    namespace: pomerium
+  path: ./zones/hornhorse/pomerium.helmrelease.patch.yaml
 
 # ./arch-pinning
 - target:

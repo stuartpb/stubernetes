@@ -10,4 +10,5 @@ resources:
 - ./rook-ceph
 - ./internal-ingress
 - ./kube-prometheus-stack
+- ./pomerium
 - ./kubernetes-dashboard

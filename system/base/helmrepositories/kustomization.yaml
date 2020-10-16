@@ -8,4 +8,5 @@ resources:
 - ./rook-release.helmrepository.yaml
 - ./prometheus-community.helmrepository.yaml
 - ./kured.helmrepository.yaml
+- ./pomerium.helmrepository.yaml
 - ./kubernetes-dashboard.helmrepository.yaml
