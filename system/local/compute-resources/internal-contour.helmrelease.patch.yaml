@@ -2,7 +2,6 @@
   path: /spec/values/contour/resources
   value:
     limits:
-      cpu: 400m
       memory: 250Mi
     requests:
       cpu: 100m
@@ -11,7 +10,6 @@
   path: /spec/values/envoy/resources
   value:
     limits:
-      cpu: 400m
       memory: 250Mi
     requests:
       cpu: 100m
