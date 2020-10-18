@@ -70,6 +70,22 @@ patches:
     namespace: pomerium
   path: ./zones/hornhorse/pomerium.helmrelease.patch.yaml
 
+# ./zones/hornhorse/ingress
+- target:
+    kind: HelmRelease
+    group: helm.toolkit.fluxcd.io
+    version: v2beta1
+    name: pomerium
+    namespace: pomerium
+  path: ./zones/hornhorse/ingress/pomerium-ingress.helmrelease.patch.yaml
+- target:
+    kind: HelmRelease
+    group: helm.toolkit.fluxcd.io
+    version: v2beta1
+    name: pomerium
+    namespace: pomerium
+  path: ./zones/hornhorse/ingress/pomerium-policies.helmrelease.patch.yaml
+
 # ./arch-pinning
 - target:
     kind: HelmRelease
