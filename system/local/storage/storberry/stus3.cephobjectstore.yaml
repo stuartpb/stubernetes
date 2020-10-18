@@ -1,7 +1,7 @@
 apiVersion: ceph.rook.io/v1
 kind: CephObjectStore
 metadata:
-  name: st8s3
+  name: stus3
   namespace: rook-ceph
 spec:
   metadataPool:
