@@ -1,2 +1,2 @@
-kubeadm init --image-repository k8s.gcr.io --pod-network-cidr=10.244.0.0/16
-KUBECONFIG=/etc/kubernetes/admin.conf kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubeadm init --image-repository k8s.gcr.io
+KUBECONFIG=/etc/kubernetes/admin.conf kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(KUBECONFIG=/etc/kubernetes/admin.conf kubectl version | base64 | tr -d '\n')"
