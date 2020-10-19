@@ -4,4 +4,5 @@
     from: https://alertmanager.horn.horse
     to: http://kps-alertmanager.prometheus.svc.cluster.local:9093
     allowed_users:
-      - s@stuartpb.com
+    - github/stuartpb
+    - s@stuartpb.com
