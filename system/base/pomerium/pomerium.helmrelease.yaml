@@ -17,3 +17,6 @@ spec:
     config:
       policy: []
     nodeSelector: {}
+    service:
+      annotations:
+        projectcontour.io/upstream-protocol.h2: https
