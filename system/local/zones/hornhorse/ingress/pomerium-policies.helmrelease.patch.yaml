@@ -6,3 +6,38 @@
     allowed_users:
     - github/stuartpb
     - s@stuartpb.com
+- op: add
+  path: /spec/values/config/policy/-
+  value:
+    from: https://prometheus.horn.horse
+    to: http://kps-prometheus.prometheus.svc.cluster.local:9090
+    allowed_users:
+    - github/stuartpb
+    - s@stuartpb.com
+- op: add
+  path: /spec/values/config/policy/-
+  value:
+    from: https://grafana.horn.horse
+    to: http://kube-prometheus-stack-grafana.prometheus.svc.cluster.local
+    allowed_users:
+    - github/stuartpb
+    - s@stuartpb.com
+    pass_identity_headers: true
+- op: add
+  path: /spec/values/config/policy/-
+  value:
+    from: https://rook-ceph.horn.horse
+    to: http://rook-ceph-mgr-dashboard.rook-ceph.svc.cluster.local:7000
+    allowed_users:
+    - github/stuartpb
+    - s@stuartpb.com
+- op: add
+  path: /spec/values/config/policy/-
+  value:
+    from: https://kubernetes-dashboard.horn.horse
+    to: https://kubernetes-dashboard.kubernetes-dashboard.svc.cluster.local
+    allowed_users:
+    - github/stuartpb
+    - s@stuartpb.com
+    tls_skip_verify: true
+

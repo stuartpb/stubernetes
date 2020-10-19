@@ -25,3 +25,8 @@ spec:
       nodeSelector: {}
     grafana:
       nodeSelector: {}
+      grafana.ini:
+        auth.proxy:
+          enabled: true
+          header_name: X-Pomerium-Claim-Email
+          header_property: email

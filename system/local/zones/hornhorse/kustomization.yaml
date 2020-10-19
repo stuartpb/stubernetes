@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - ./hornhorse.namespace.yaml
 - ./hornhorse-external-dns.helmrelease.yaml
-- ./ingress
+# ./ingress is patch-only
