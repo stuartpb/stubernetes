@@ -21,4 +21,3 @@ spec:
       create: true
       clusterRoleMetrics: true
       clusterReadOnlyRole: true
-    protocolHttp: true
