@@ -1,0 +1,10 @@
+- op: add
+  path: /spec/values/redis
+  value:
+    enabled: true
+    master:
+      persistence:
+        storageClass: throwaway
+    slave:
+      persistence:
+        storageClass: throwaway
