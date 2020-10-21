@@ -2,6 +2,8 @@
   path: /spec/values/redis
   value:
     enabled: true
+    image:
+      repository: library/redis
     master:
       persistence:
         storageClass: throwaway
