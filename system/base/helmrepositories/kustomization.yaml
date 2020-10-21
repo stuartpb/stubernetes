@@ -5,6 +5,7 @@ resources:
 - ./k8s-at-home.helmrepository.yaml
 - ./bitnami.helmrepository.yaml
 - ./jetstack.helmrepository.yaml
+- ./ingress-nginx.helmrepository.yaml
 - ./rook-release.helmrepository.yaml
 - ./prometheus-community.helmrepository.yaml
 - ./kured.helmrepository.yaml
