@@ -29,13 +29,13 @@ patches:
     name: kube-prometheus-stack
     namespace: prometheus
   path: ./storage/kube-prometheus-stack.helmrelease.patch.yaml
-- target:
-    kind: HelmRelease
-    group: helm.toolkit.fluxcd.io
-    version: v2beta1
-    name: pomerium
-    namespace: pomerium
-  path: ./storage/pomerium.helmrelease.patch.yaml
+# - target:
+#     kind: HelmRelease
+#     group: helm.toolkit.fluxcd.io
+#     version: v2beta1
+#     name: pomerium
+#     namespace: pomerium
+#   path: ./storage/pomerium.helmrelease.patch.yaml
 
 # ./storage/storberry
 - target:
