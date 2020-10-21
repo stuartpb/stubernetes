@@ -1,6 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+  labels:
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard
   annotations:
     cert-manager.io/cluster-issuer: stuartpb-letsencrypt-staging
     ingress.kubernetes.io/force-ssl-redirect: "true"
@@ -9,11 +14,6 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     nginx.ingress.kubernetes.io/auth-url: "https://pomerium-proxy.pomerium.svc.cluster.local/verify?uri=$scheme://$host$request_uri"
     nginx.ingress.kubernetes.io/auth-signin: "https://pomerium-proxy.pomerium.svc.cluster.local?uri=$scheme://$host$request_uri"
-  labels:
-    app.kubernetes.io/instance: kubernetes-dashboard
-    app.kubernetes.io/name: kubernetes-dashboard
-  name: kubernetes-dashboard
-  namespace: kubernetes-dashboard
 spec:
   rules:
   - host: kubernetes-dashboard.horn.horse
