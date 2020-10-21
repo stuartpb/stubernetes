@@ -116,6 +116,13 @@ patches:
     name: pomerium
     namespace: pomerium
   path: ./arch-pinning/pomerium.helmrelease.patch.yaml
+- target:
+    kind: HelmRelease
+    group: helm.toolkit.fluxcd.io
+    version: v2beta1
+    name: secret-generator
+    namespace: secret-generator
+  path: ./arch-pinning/secret-generator.helmrelease.patch.yaml
 
 # ./chart-forks
 - target:
