@@ -6,6 +6,8 @@ metadata:
     ingress.kubernetes.io/force-ssl-redirect: "true"
     kubernetes.io/ingress.class: internal
     kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/auth-url: "https://pomerium-proxy.pomerium.svc.cluster.local/verify?uri=$scheme://$host$request_uri"
+    nginx.ingress.kubernetes.io/auth-signin: "https://pomerium-proxy.pomerium.svc.cluster.local?uri=$scheme://$host$request_uri"
   labels:
     app.kubernetes.io/name: kube-prometheus-stack-prometheus
   name: kps-prometheus

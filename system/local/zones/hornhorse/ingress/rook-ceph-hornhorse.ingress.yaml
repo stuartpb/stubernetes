@@ -8,8 +8,8 @@ metadata:
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: stuartpb-letsencrypt-staging
     ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/auth-url: "https://forwardauth.horn.horse/verify?uri=$scheme://$host$request_uri"
-    nginx.ingress.kubernetes.io/auth-signin: "https://forwardauth.horn.horse?uri=$scheme://$host$request_uri"
+    nginx.ingress.kubernetes.io/auth-url: "https://pomerium-proxy.pomerium.svc.cluster.local/verify?uri=$scheme://$host$request_uri"
+    nginx.ingress.kubernetes.io/auth-signin: "https://pomerium-proxy.pomerium.svc.cluster.local?uri=$scheme://$host$request_uri"
 spec:
   rules:
   - host: rook-ceph.horn.horse
