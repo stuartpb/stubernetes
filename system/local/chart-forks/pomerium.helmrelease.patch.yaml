@@ -1,0 +1,9 @@
+- op: add
+  path: /spec/chart/spec/sourceRef
+  value:
+    kind: GitRepository
+    name: stuartpb-pomerium
+    namespace: pomerium
+- op: add
+  path: /spec/chart/spec/chart
+  value: charts/pomerium

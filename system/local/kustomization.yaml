@@ -9,6 +9,7 @@ resources:
 - ./zones/hornhorse
 - ./issuers
 #- ./arch-pinning # patches only
+- ./chart-forks
 #- ./compute-resources # patches only
 
 patches:
@@ -116,6 +117,14 @@ patches:
     namespace: pomerium
   path: ./arch-pinning/pomerium.helmrelease.patch.yaml
 
+# ./chart-forks
+- target:
+    kind: HelmRelease
+    group: helm.toolkit.fluxcd.io
+    version: v2beta1
+    name: pomerium
+    namespace: pomerium
+  path: ./chart-forks/pomerium.helmrelease.patch.yaml
 
 # ./compute-resources
 - target:
