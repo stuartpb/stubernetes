@@ -40,4 +40,3 @@
     - github/stuartpb
     - s@stuartpb.com
     tls_skip_verify: true
-

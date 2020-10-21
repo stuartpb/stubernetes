@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rook-ceph-mgr-dashboard
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: "internal"
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: stuartpb-letsencrypt-staging
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/auth-url: "https://forwardauth.horn.horse/verify?uri=$scheme://$host$request_uri"
+    nginx.ingress.kubernetes.io/auth-signin: "https://forwardauth.horn.horse?uri=$scheme://$host$request_uri"
+spec:
+  rules:
+  - host: rook-ceph.horn.horse
+    http:
+      paths:
+      - backend:
+          service:
+            name: rook-ceph-mgr-dashboard
+            port:
+              name: http-dashboard
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - rook-ceph.horn.horse
+    secretName: rook-ceph-hornhorse-cert

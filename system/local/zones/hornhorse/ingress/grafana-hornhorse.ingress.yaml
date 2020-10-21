@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: stuartpb-letsencrypt-staging
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/ingress.class: internal
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  labels:
+    app.kubernetes.io/name: kube-prometheus-stack-grafana
+  name: kube-prometheus-stack-grafana
+  namespace: pomerium
+spec:
+  rules:
+  - host: grafana.horn.horse
+    http:
+      paths:
+      - backend:
+          service:
+            name: pomerium-proxy
+            port:
+              name: https
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - grafana.horn.horse
+    secretName: grafana-hornhorse-cert
