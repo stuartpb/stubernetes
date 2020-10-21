@@ -20,3 +20,12 @@ spec:
     forwardAuth:
       enabled: true
       internal: true
+  valuesFrom:
+  - kind: Secret
+    name: pomerium-config-secrets
+    valuesKey: sharedSecret
+    targetPath: config.sharedSecret
+  - kind: Secret
+    name: pomerium-config-secrets
+    valuesKey: cookieSecret
+    targetPath: config.cookieSecret
