@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: kured
-      version: 2.2.0
+      version: 2.9.0
       sourceRef:
         kind: HelmRepository
         name: kured
@@ -17,14 +17,12 @@ spec:
     updateStrategy: RollingUpdate
     image:
       repository: docker.io/raspbernetes/kured
-    ## not sure I trust the chart's Prometheus stuff to work with this
-    ## see https://github.com/weaveworks/kured/pull/209
-    # metrics:
-    #   create: true
-    #   namespace: kured
-    # service:
-    #   create: true
-    #   annotations:
-    #     prometheus.io/scrape: "true"
-    #     prometheus.io/path: "/metrics"
-    #     prometheus.io/port: "8080"
+    metrics:
+      create: true
+      namespace: kured
+    service:
+      create: true
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "8080"
