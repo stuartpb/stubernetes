@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: kured
-  namespace: gotk-system
+  namespace: flux-system
 spec:
   url: https://weaveworks.github.io/kured
   interval: 30m

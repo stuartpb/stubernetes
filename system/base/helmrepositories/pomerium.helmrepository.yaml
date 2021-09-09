@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: pomerium
-  namespace: gotk-system
+  namespace: flux-system
 spec:
   url: https://helm.pomerium.io/
   interval: 30m

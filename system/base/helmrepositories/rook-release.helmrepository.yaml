@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: rook-release
-  namespace: gotk-system
+  namespace: flux-system
 spec:
   url: https://charts.rook.io/release
   interval: 30m
