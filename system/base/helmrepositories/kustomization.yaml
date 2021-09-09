@@ -12,3 +12,5 @@ resources:
 - ./kured.helmrepository.yaml
 - ./pomerium.helmrepository.yaml
 - ./kubernetes-dashboard.helmrepository.yaml
+- ./node-feature-discovery.helmrepository.yaml
+
