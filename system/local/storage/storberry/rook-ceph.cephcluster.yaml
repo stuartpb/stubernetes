@@ -6,7 +6,7 @@ metadata:
 spec:
   cephVersion:
     # see the "Cluster Settings" section below for more details on which image of ceph to run
-    image: ceph/ceph:v15.2.5
+    image: ceph/ceph:v16.2.5
   dataDirHostPath: /var/lib/rook
   dashboard:
     enabled: true

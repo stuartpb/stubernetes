@@ -1,7 +1,7 @@
 kind: Node
 apiVersion: v1
 metadata:
-  name: mpi-rose
+  name: cpi-rose
   labels: {}
 ---
 kind: Node

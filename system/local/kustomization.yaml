@@ -29,13 +29,13 @@ patches:
     name: kube-prometheus-stack
     namespace: prometheus
   path: ./storage/kube-prometheus-stack.helmrelease.patch.yaml
-# - target:
-#     kind: HelmRelease
-#     group: helm.toolkit.fluxcd.io
-#     version: v2beta1
-#     name: pomerium
-#     namespace: pomerium
-#   path: ./storage/pomerium.helmrelease.patch.yaml
+- target:
+    kind: HelmRelease
+    group: helm.toolkit.fluxcd.io
+    version: v2beta1
+    name: pomerium
+    namespace: pomerium
+  path: ./storage/pomerium.helmrelease.patch.yaml
 
 # ./storage/storberry
 - target:
@@ -48,7 +48,7 @@ patches:
 - target:
     kind: Node
     version: v1
-    name: (mpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
+    name: (cpi-rose|wpi-(garnet|amethyst|pearl)|wpc-(gomez|morticia))
   path: ./zones/403/zone-403.nodes.patch.yaml
 - target:
     kind: HelmRelease
@@ -134,13 +134,13 @@ patches:
 #   path: ./chart-forks/pomerium.helmrelease.patch.yaml
 
 # ./compute-resources
-- target:
-    kind: HelmRelease
-    group: helm.toolkit.fluxcd.io
-    version: v2beta1
-    name: internal-contour
-    namespace: internal-ingress
-  path: ./compute-resources/internal-contour.helmrelease.patch.yaml
+# - target:
+#     kind: HelmRelease
+#     group: helm.toolkit.fluxcd.io
+#     version: v2beta1
+#     name: internal-contour
+#     namespace: internal-ingress
+#   path: ./compute-resources/internal-contour.helmrelease.patch.yaml
 - target:
     kind: HelmRelease
     group: helm.toolkit.fluxcd.io
