@@ -5,7 +5,7 @@ ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 # disable DNSSEC globally
 sed -i '/^#\?DNSSEC=/{s/^#//;s/=.*$/=no/}' /etc/systemd/resolved.conf
 echo '[Match]
-Type=ether
+Name=eth*
 
 [Network]
 DHCP=yes
