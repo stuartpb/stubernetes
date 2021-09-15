@@ -3,14 +3,16 @@ BUILD_TIMESTAMP=$(date -u +%Y%m%dT%H%M%S)
 
 # set up partitions for boot and root
 fdisk "$SDCARD_DEVICE" <<EOF
-g
+o
 n
+p
 1
 
 +200M
 t
-1
+c
 n
+p
 2
 
 
