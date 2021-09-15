@@ -6,7 +6,7 @@ metadata:
 spec:
   cephVersion:
     # see the "Cluster Settings" section below for more details on which image of ceph to run
-    image: ceph/ceph:v16.2.5
+    image: quay.io/ceph/ceph:v16.2.5
   dataDirHostPath: /var/lib/rook
   dashboard:
     enabled: true
@@ -15,19 +15,19 @@ spec:
   mon:
     count: 3
     allowMultiplePerNode: true
-  driveGroups:
-  - name: storberry
-    spec:
-      db_devices:
-        size: ':128G'
-      data_devices:
-        size: '1T:'
-    placement:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: st8s.testtrack4.com/storage-group
-              operator: In
-              values:
-              - storberry
+  storage:
+    useAllNodes: false
+    useAllDevices: false
+    config:
+      metadataDevice: storberry-ssd
+    nodes:
+    - name: wpi-garnet
+      devices:
+      - name: /dev/disk/by-id/usb-WD_My_Passport_0748_575844314537324E43583737-0:0
+    - name: wpi-amethyst
+      devices:
+      - name: /dev/disk/by-id/usb-Seagate_Portable_NAAHGF0V-0:0
+    - name: wpi-pearl
+      devices:
+      - name: /dev/disk/by-id/usb-WD_Elements_2621_575843324531303454545741-0:0
+
