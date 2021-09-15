@@ -18,8 +18,8 @@ spec:
   storage:
     useAllNodes: false
     useAllDevices: false
-    config:
-      metadataDevice: storberry-ssd
+#    config:
+#      metadataDevice: storberry-ssd
     nodes:
     - name: wpi-garnet
       devices:
