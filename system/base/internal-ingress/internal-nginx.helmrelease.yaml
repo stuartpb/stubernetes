@@ -15,7 +15,8 @@ spec:
   interval: 10m
   values:
     controller:
-      ingressClass: internal
+      ingressClassResource:
+        name: internal
       nodeSelector: {}
       service: {}
 
