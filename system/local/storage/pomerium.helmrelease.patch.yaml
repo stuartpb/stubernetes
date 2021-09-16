@@ -4,7 +4,7 @@
     enabled: true
     image:
       repository: library/redis
-      tag: 6.2.5-alpine
+      tag: 6.2.5-buster
     master:
       command: [redis-server]
       args: [""]
