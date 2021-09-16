@@ -6,14 +6,14 @@
       repository: library/redis
       tag: 6.2.5-alpine
     master:
-      command: redis-server
+      command: [redis-server]
       args: []
       persistence:
         storageClass: throwaway
 #      nodeSelector:
 #        kubernetes.io/arch: amd64
     replica:
-      command: redis-server
+      command: [redis-server]
       args: []
       persistence:
         storageClass: throwaway
