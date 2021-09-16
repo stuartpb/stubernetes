@@ -8,7 +8,6 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: stuartpb-letsencrypt-staging
     ingress.kubernetes.io/force-ssl-redirect: "true"
-    kubernetes.io/ingress.class: internal
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
