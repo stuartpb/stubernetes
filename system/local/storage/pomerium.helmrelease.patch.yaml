@@ -2,9 +2,6 @@
   path: /spec/values/redis
   value:
     enabled: true
-    image:
-      repository: library/redis
-      tag: 6.2.5-alpine
     master:
       persistence:
         storageClass: throwaway
