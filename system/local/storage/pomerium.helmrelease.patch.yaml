@@ -4,9 +4,10 @@
     enabled: true
     image:
       repository: library/redis
+      tag: 6.2.5-alpine
     master:
       persistence:
         storageClass: throwaway
-    slave:
+    replica:
       persistence:
         storageClass: throwaway
