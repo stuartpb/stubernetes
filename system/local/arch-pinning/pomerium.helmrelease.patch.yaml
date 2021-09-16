@@ -1,3 +1,4 @@
 - op: add
   path: /spec/values/nodeSelector/kubernetes.io~1arch
   value: amd64
+# Redis nodes may be arch-pinned, too - see patch under storage directory
