@@ -7,14 +7,14 @@
       tag: 6.2.5-alpine
     master:
       command: [redis-server]
-      args: []
+      args: [""]
       persistence:
         storageClass: throwaway
 #      nodeSelector:
 #        kubernetes.io/arch: amd64
     replica:
       command: [redis-server]
-      args: []
+      args: [""]
       persistence:
         storageClass: throwaway
 #      nodeSelector:
