@@ -19,7 +19,7 @@ spec:
     nodeSelector: {}
     forwardAuth:
       enabled: true
-      internal: true
+      internal: false
   valuesFrom:
   - kind: Secret
     name: pomerium-config-secrets
