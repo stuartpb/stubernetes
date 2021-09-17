@@ -1,14 +1,14 @@
 - op: add
   path: /spec/values/redis
   value:
-    enabled: true
-    master:
-      persistence:
-        storageClass: throwaway
-      nodeSelector:
-        kubernetes.io/arch: amd64
-    replica:
-      persistence:
-        storageClass: throwaway
-      nodeSelector:
-        kubernetes.io/arch: amd64
+    enabled: false
+    # master:
+    #   persistence:
+    #     storageClass: throwaway
+    #   nodeSelector:
+    #     kubernetes.io/arch: amd64
+    # replica:
+    #   persistence:
+    #     storageClass: throwaway
+    #   nodeSelector:
+    #     kubernetes.io/arch: amd64
