@@ -20,7 +20,6 @@ spec:
     forwardAuth:
       enabled: true
       internal: true
-      name: pomerium-proxy.pomerium.svc.cluster.local
   valuesFrom:
   - kind: Secret
     name: pomerium-config-secrets
