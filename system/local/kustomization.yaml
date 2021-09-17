@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
 - ../base
 - ./nodes.yaml
-- ./hats
 - ./storage
 #- ./zones/403 # patches only
 - ./zones/hornhorse
@@ -13,13 +12,6 @@ resources:
 #- ./compute-resources # patches only
 
 patches:
-
-# ./hats
-- target:
-    kind: Node
-    version: v1
-    name: wpi-pearl
-  path: ./hats/argon1.nodes.patch.yaml
 
 # ./storage
 - target:
