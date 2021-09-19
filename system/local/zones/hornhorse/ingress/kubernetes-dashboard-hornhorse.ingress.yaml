@@ -11,8 +11,8 @@ metadata:
     ingress.kubernetes.io/force-ssl-redirect: "true"
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    # nginx.ingress.kubernetes.io/auth-url: "https://forwardauth.horn.horse/verify?uri=$scheme://$host$request_uri"
-    # nginx.ingress.kubernetes.io/auth-signin: "https://forwardauth.horn.horse/?uri=$scheme://$host$request_uri"
+    nginx.ingress.kubernetes.io/auth-url: "https://forwardauth.horn.horse/verify?uri=$scheme://$host$request_uri"
+    nginx.ingress.kubernetes.io/auth-signin: "https://forwardauth.horn.horse/?uri=$scheme://$host$request_uri"
 spec:
   ingressClassName: internal
   rules:
