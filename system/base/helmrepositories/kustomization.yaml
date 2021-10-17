@@ -13,4 +13,4 @@ resources:
 - ./pomerium.helmrepository.yaml
 - ./kubernetes-dashboard.helmrepository.yaml
 - ./node-feature-discovery.helmrepository.yaml
-
+- ./external-dns.helmrepository.yaml
